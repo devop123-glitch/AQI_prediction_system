@@ -114,18 +114,31 @@ For any cyclical feature:
 sin_value=sin(2π⋅x/T)
 cos_value=cos(2π⋅x/T)
 Where:
+
 x = current value (e.g., hour)
+
 T = total cycle length (e.g., 24 hours)
+
 ⚙️ Implementation in the Project
+
 🕒 Hour Encoding
+
 hour_sin = np.sin(2 * np.pi * df['hour'] / 24)
+
 hour_cos = np.cos(2 * np.pi * df['hour'] / 24)
+
 📅 Month Encoding
+
 month_sin = np.sin(2 * np.pi * df['month'] / 12)
+
 month_cos = np.cos(2 * np.pi * df['month'] / 12)
+
 📆 Year (Seasonal Cycle)
+
 year_sin = np.sin(2 * np.pi * df['dayofyear'] / 365)
+
 year_cos = np.cos(2 * np.pi * df['dayofyear'] / 365)
+
 🧠 Intuition Behind the Transformation
 
 Instead of representing time as a straight line, cyclical encoding maps it onto a circle.
